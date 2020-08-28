@@ -1,4 +1,4 @@
-import {createElement} from "../util.js";
+import AbstractView from "./abstract.js";
 
 const createBoardTasksTemplate = () => {
   return (
@@ -6,22 +6,8 @@ const createBoardTasksTemplate = () => {
   );
 };
 
-export default class BoardTasks {
-  constructor() {
-    this._element = null;
-  }
+export default class BoardTasks extends AbstractView {
   getTemplate() {
     return createBoardTasksTemplate();
-  }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
   }
 }
